@@ -1,5 +1,5 @@
 var stompClient = null;
-
+var sock =null;
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
@@ -13,8 +13,9 @@ function setConnected(connected) {
 }
 
 function connect() {
-        var sock = new SockJS('/as');
+        sock = new SockJS('/as');
         sock.onopen = function() {
+        setConnected(true);
          console.log('open');
      };
 
@@ -30,6 +31,7 @@ function connect() {
 
      sock.onclose = function() {
          console.log('close');
+         setConnected(false);
      };
 //    stompClient = Stomp.over(socket);
 //    stompClient.connect({}, function (frame) {
@@ -50,8 +52,8 @@ function connect() {
 }
 
 function disconnect() {
-    if (stompClient !== null) {
-        stompClient.disconnect();
+    if (sock !== null) {
+        sock.close();
     }
     setConnected(false);
     console.log("Disconnected");

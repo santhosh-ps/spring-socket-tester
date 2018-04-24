@@ -32,7 +32,7 @@ public class WebSocketHandler extends TextWebSocketHandler {
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         String sessionId = session.getId();
         Util.removeSession(session);
-        LOG.info(String.format("Session %s closed because of %s", sessionId, status.getReason()));
+        LOG.info(String.format("Session %s closed", sessionId));
         TextMessage msg = new TextMessage(getJsonString("dis",sessionId,Util.getCount()));
         Util.getSessions().forEach(session1 -> {
             try {
