@@ -1,0 +1,4 @@
+
+^squid:UselessImportCheck"5Remove this unused import 'java.util.logging.Logger'.(ƒ¥óš8íÑ¹ž¯,
+isquid:CallToDeprecatedMethod"7Remove this use of "setInterceptors"; it is deprecated.(å¥ïØùÿÿÿÿ8Ðæƒ¥¯,
+isquid:CallToDeprecatedMethod"7Remove this use of "setInterceptors"; it is deprecated.(å¥ïØùÿÿÿÿ8Ðæƒ¥¯,
