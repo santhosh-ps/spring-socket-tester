@@ -16,12 +16,16 @@ function connect() {
         var sock = new SockJS('/as');
         sock.onopen = function() {
          console.log('open');
-         sock.send('test');
      };
 
      sock.onmessage = function(e) {
          console.log('message', e.data);
-         sock.close();
+         var data = JSON.parse(e.data);
+         if(data.type && data.type==="con")
+            $("#greetings").append(`<tr id="`+data.session+`"><td>`+data.session+`</td></tr>`);
+          else if(data.type && data.type==="dis")
+          $('tr#'+data.session).remove();
+           $("#session_id").text(data.count);
      };
 
      sock.onclose = function() {

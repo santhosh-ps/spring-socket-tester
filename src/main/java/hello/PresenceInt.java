@@ -24,20 +24,7 @@ public class PresenceInt extends ChannelInterceptorAdapter {
         String sessionId = sha.getSessionId();
 
         switch(sha.getCommand()) {
-            case CONNECT:
-                Util.addSessionId(sessionId);
-                LOG.info("Socket connected:"+sessionId+", count :"+Util.getCount());
-                break;
-            case CONNECTED:
-                Util.addSessionId(sessionId);
-                LOG.info("Socket connected:"+sessionId+", count :"+Util.getCount());
-                break;
-            case DISCONNECT:
-                Util.remove(sessionId);
-                LOG.info("Socket disconnected:"+sessionId+", count :"+Util.getCount());
-                break;
-            default:
-                break;
+
 
         }
     }

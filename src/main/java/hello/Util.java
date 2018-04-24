@@ -1,25 +1,33 @@
 package hello;
 
+import org.springframework.web.socket.WebSocketSession;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Util {
-    private static Set<String> sessionIds = new HashSet<>();
+    private static Set<WebSocketSession> sessions = new HashSet<>();
 
-    public static void addSessionId(String id){
-        sessionIds.add(id);
+    public static void addSession(WebSocketSession session){
+        sessions.add(session);
+    }
+
+    public static Set<WebSocketSession> getSessions() {
+        return sessions;
+    }
+
+    public static void setSessions(Set<WebSocketSession> sessions) {
+        Util.sessions = sessions;
     }
 
     public static Integer getCount(){
-        return sessionIds.size();
+
+        return sessions.size();
     }
-    public static void remove(String val){
-        sessionIds.remove(val);
+    public static void removeSession(WebSocketSession session){
+        sessions.remove(session);
     }
 
-    public static Set<String> getSessionIds() {
-        return sessionIds;
-    }
 }

@@ -13,7 +13,7 @@ public class GreetingController {
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
     public Greeting greeting(String message) throws Exception {
-        return new Greeting(objectMapper.writeValueAsString(Util.getSessionIds()));
+        return new Greeting("");
     }
 
 }

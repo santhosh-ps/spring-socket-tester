@@ -2,6 +2,7 @@ package hello;
 
 import org.springframework.web.socket.WebSocketMessage;
 
+
 public class WebSocketTextMessage implements WebSocketMessage<String> {
     String message;
 
